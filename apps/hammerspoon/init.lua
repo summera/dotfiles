@@ -16,6 +16,16 @@ k = hs.hotkey.modal.new({"ctrl"}, "space")
 
 k:bind({}, 'i', function() launchOrFocus('iTerm') end, function() k:exit() end)
 k:bind({}, 'f', function() launchOrFocus('FirefoxDeveloperEdition') end, function() k:exit() end)
+k:bind({}, 's', function() launchOrFocus('Slack') end, function() k:exit() end)
+k:bind({}, 'm', function() launchOrFocus('Messages') end, function() k:exit() end)
+k:bind({}, 't', function() launchOrFocus('SourceTree') end, function() k:exit() end)
+k:bind({}, 'x', function() launchOrFocus('Xcode') end, function() k:exit() end)
+k:bind({}, 'c', function() launchOrFocus('Google Chrome') end, function() k:exit() end)
+k:bind({}, 'n', function() launchOrFocus('Navicat Lite') end, function() k:exit() end)
+k:bind({}, 's', function() launchOrFocus('Slack') end, function() k:exit() end)
+k:bind({}, 'm', function() launchOrFocus('Messages') end, function() k:exit() end)                                                k:bind({}, 't', function() launchOrFocus('SourceTree') end, function() k:exit() end)
+k:bind({}, 'x', function() launchOrFocus('Xcode') end, function() k:exit() end)
+k:bind({}, 'c', function() launchOrFocus('Google Chrome') end, function() k:exit() end)                                           k:bind({}, 'n', function() launchOrFocus('Navicat Lite') end, function() k:exit() end)
 
 k:bind({}, 'r', function() hs.reload() end, function() k:exit() end)
 k:bind({}, 'd', function() hs.window.focusedWindow():close() end, function() k:exit() end)
@@ -38,7 +48,6 @@ k:bind({}, 'k', function() snapFocusedWindow(hs.layout.maximized) end, function(
 
 --== Hints ==--
 -- k:bind({}, ';', function() hs.hints.windowHints() end, function() k:exit() end)
-
 
 --== Welcome ==--
 hs.alert.show('Hammerspoon, at your service.')
