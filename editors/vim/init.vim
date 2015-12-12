@@ -1,1 +1,1 @@
-/Users/ari/.nvim/vimrc
+vimrc
