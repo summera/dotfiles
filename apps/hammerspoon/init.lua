@@ -35,7 +35,7 @@ k:bind({}, 'right', function() hs.grid.pushWindowPrevScreen() end, function() k:
 
 --== Grid snapping ==--
 local function snapFocusedWindow(layout)
-  hs.grid.set(hs.window.focusedWindow(), layout, hs.screen.mainScreen())
+  hs.window.focusedWindow():moveToUnit(layout)
 end
 
 k:bind({}, 'h', function() snapFocusedWindow(hs.layout.left50) end, function() k:exit() end)
