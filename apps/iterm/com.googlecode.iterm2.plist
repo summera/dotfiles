@@ -2168,7 +2168,7 @@
 			<key>Window Type</key>
 			<integer>1</integer>
 			<key>Working Directory</key>
-			<string>/Users/ianks</string>
+			<string>/Users/ari</string>
 		</dict>
 	</array>
 	<key>NoSyncNeverRemindPrefsChangesLost</key>
@@ -2221,7 +2221,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/ianks/.yadr/apps/iterm</string>
+	<string>~/.yadr/apps/iterm</string>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
