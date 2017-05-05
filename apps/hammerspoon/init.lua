@@ -42,9 +42,5 @@ k:bind({}, 'h', function() snapFocusedWindow(hs.layout.left50) end, function() k
 k:bind({}, 'l', function() snapFocusedWindow(hs.layout.right50) end, function() k:exit() end)
 k:bind({}, 'k', function() snapFocusedWindow(hs.layout.maximized) end, function() k:exit() end)
 
-
---== Hints ==--
--- k:bind({}, ';', function() hs.hints.windowHints() end, function() k:exit() end)
-
 --== Welcome ==--
 hs.alert.show('Hammerspoon, at your service.')
