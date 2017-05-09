@@ -67,7 +67,8 @@ task :install => [:submodule_init, :submodules] do
   end
 
   if want_to_install?('vim configuration (highly recommended)')
-    file_operation(Dir.glob('editors/{,n}vim'))
+    file_operation(Dir.glob('editors/vim'))
+    file_operation(Dir.glob('editors/nvim'), :symlink, true)
     Rake::Task["install_plug"].execute
   end
 
@@ -330,11 +331,16 @@ def want_to_install? (section)
   end
 end
 
-def file_operation(files, method = :symlink)
+def file_operation(files, method = :symlink, xdg_config = false)
   files.each do |f|
     file = f.split('/').last
     source = "#{ENV["PWD"]}/#{f}"
-    target = "#{ENV["HOME"]}/.#{file}"
+
+    if xdg_config
+      target = "#{ENV["HOME"]}/.config/#{file}"
+    else
+      target = "#{ENV["HOME"]}/.#{file}"
+    end
 
     puts "======================#{file}=============================="
     puts "Source: #{source}"
@@ -342,7 +348,7 @@ def file_operation(files, method = :symlink)
 
     if File.exists?(target) && (!File.symlink?(target) || (File.symlink?(target) && File.readlink(target) != source))
       puts "[Overwriting] #{target}...leaving original at #{target}.backup..."
-      run %{ mv "$HOME/.#{file}" "$HOME/.#{file}.backup" }
+      run %{mv "#{target}" "#{target}.backup"}
     end
 
     if method == :symlink
