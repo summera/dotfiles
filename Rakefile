@@ -39,6 +39,10 @@ task :install => [:submodule_init, :submodules] do
     if want_to_install?('XVim config')
       file_operation(Dir.glob('editors/xvimrc'))
     end
+
+    if want_to_install?('ideavim config')
+      file_operation(Dir.glob('editors/ideavimrc'))
+    end
   end
 
   if RUBY_PLATFORM.include? 'linux'
