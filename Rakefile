@@ -30,7 +30,7 @@ task :install => [:submodule_init, :submodules] do
 
   if RUBY_PLATFORM.include? 'darwin'
     if want_to_install?('Hammerspoon (OSX scripting)')
-        file_operation(Dir.glob('apps/hammerspoon'))
+      file_operation(Dir.glob('apps/hammerspoon'))
 
       run %{brew install lua luarocks}
       run %{echo 'rocks_servers = { "http://rocks.moonscript.org" }' > ~/.luarocks/config.lua}
