@@ -35,6 +35,10 @@ task :install => [:submodule_init, :submodules] do
       run %{brew install lua luarocks}
       run %{echo 'rocks_servers = { "http://rocks.moonscript.org" }' > ~/.luarocks/config.lua}
     end
+
+    if want_to_install?('XVim config')
+      file_operation(Dir.glob('editors/xvimrc'))
+    end
   end
 
   if RUBY_PLATFORM.include? 'linux'

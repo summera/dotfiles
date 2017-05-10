@@ -1,0 +1,106 @@
+imap jj <esc>
+
+" Command-/ to toggle comments
+map ÷ :TComment<cr>
+imap ÷ <esc>:TComment<cr>i
+
+" Stop pressing shift all the time
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+
+xnoremap p pgvy
+
+" move between windows
+nnoremap <c-j> <c-w>j<cr>
+nnoremap <c-k> <c-w>k<cr>
+nnoremap <c-h> <c-w>h<cr>
+nnoremap <c-l> <c-w>l<cr>
+
+" splits
+nnoremap <c-a>v <c-w>v<cr>
+nnoremap <c-a>s <c-w>s<cr>
+nnoremap <c-a>x <c-w>q<cr>
+" Create window splits easier. The default
+" way is Ctrl-w,v and Ctrl-w,s. I remap
+" this to vv and ss
+nnoremap <silent> vv <C-w>v
+nnoremap <silent> ss <C-w>s
+
+" comments
+nnoremap gcc :xccmd commentAndUncommentCurrentLines<cr>
+vnoremap gc  :xccmd commentAndUncommentCurrentLines<cr>
+
+" files
+" quick open
+nnoremap <space>fs :xccmd openQuickly<cr>
+" close window
+nnoremap <space>qw :xccmd performClose<cr>
+" show in finder
+nnoremap <space>in :xccmd showInFinder<cr>
+" cmd+L, go to line
+nnoremap <space>l :xccmd openQuicklyScoped<cr>
+" file inspector
+nnoremap <space>fi :xcmenucmd Show File Inspector<cr>
+" filter file (view menus achieve the goal too)
+nnoremap <space>fl :xcmenucmd Filter in Library<cr>
+" search the string cursor points to. Very Usefull.
+nnoremap <space>s viw:xccmd findSelectedTextInWorkspace<cr>
+" search document for text cursor points to.
+nnoremap <space>hh :xccmd searchDocumentationForSelectedText<cr>
+" switch between .h/.m
+nnoremap <space>n :xccmd jumpToNextCounterpart<cr>
+" jump to next issue
+nmap <space>ni :xcmenucmd Jump to Next Issue<cr>
+" jump to previous issue
+nmap <space>pi :xcmenucmd Jump to Previous Issue<cr>
+
+" toggle views
+" navigator
+nnoremap <space>fe :xccmd toggleNavigatorsVisibility<cr>
+" utility
+nnoremap <space>ue :xccmd toggleUtilitiesVisibility<cr>
+" toolbar
+nnoremap <space>te :xccmd toggleToolbarShown<cr>
+" debug console
+nnoremap <space>de :xccmd toggleDebuggerVisibility<cr>
+" quick help inspector
+nnoremap <space>hi :xcmenucmd Show Quick Help Inspector<cr>
+
+" tabs
+" tab new
+nnoremap <c-a>c :xccmd newTab<cr>
+" tab close
+nnoremap <c-a>q :tabclose<cr>
+" tab pre
+nnoremap <c-a>p :xccmd selectPreviousTab<cr>
+" tab next
+nnoremap <c-a>n :xccmd selectNextTab<cr>
+
+" Project
+nnoremap <space>r :run<cr>
+nnoremap <space>bp :xcmenucmd Build<cr>
+nnoremap <space>cp :xcmenucmd Clean<cr>
+
+" Fold
+nnoremap <space>zu :xccmd fold<cr>
+nnoremap <space>uz :xccmd unfold<cr>
+nnoremap <space>za :xccmd foldAllMethods<cr>
+nnoremap <space>ua :xccmd unfoldAllMethods<cr>
+nnoremap <space>zc :xccmd foldAllComments<cr>
+nnoremap <space>uc :xccmd unfoldAllComments<cr>
+
+" " miscellaneous
+" set ignorecase
+" D deletes to the end of the line
+nnoremap D d$
+" Y yanks to the end of the line
+nnoremap Y y$"
+" " use system pasteboard
+" set pasteboard
+
+vnoremap <space>p "+p
+vnoremap <space>y "+y
+nnoremap <space>p "+p
+nnoremap <space>y "+y
