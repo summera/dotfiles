@@ -1,3 +1,5 @@
+local as = require "hs.applescript"
+
 --== Global Configuration ==--
 hs.grid.MARGINX    = 0
 hs.grid.MARGINY    = 0
@@ -5,7 +7,6 @@ hs.grid.GRIDWIDTH  = 1
 hs.grid.GRIDHEIGHT = 1
 
 hs.window.animationDuration = 0
-
 
 --== Applications ==--
 local function launchOrFocus(app)
@@ -41,6 +42,45 @@ end
 k:bind({}, 'h', function() snapFocusedWindow(hs.layout.left50) end, function() k:exit() end)
 k:bind({}, 'l', function() snapFocusedWindow(hs.layout.right50) end, function() k:exit() end)
 k:bind({}, 'k', function() snapFocusedWindow(hs.layout.maximized) end, function() k:exit() end)
+
+local function tellSonos(cmd)
+  local _cmd = 'tell application "System Events" to tell process "Sonos" to ' .. cmd
+  local ok, result = as.applescript(_cmd)
+  if ok then
+    return result
+  else
+    return nil
+  end
+end
+local function isRunning(appName)
+  local _cmd = 'application "' .. appName .. '" is running'
+  local ok, result = as.applescript(_cmd)
+
+  if ok then
+    return result
+  else
+    return false
+  end
+end
+
+k:bind({}, 'pageup', function()
+  print("volume up!")
+  if isRunning('Sonos') then
+    tellSonos('set value of slider 1 of window 1 to get (value of slider 1 of window 1) + 2')
+  else
+    output = hs.audiodevice.defaultOutputDevice()
+    output:setVolume(output:volume() + 10)
+  end
+end, function() k:exit() end)
+
+k:bind({}, 'pagedown', function()
+  if isRunning('Sonos') then
+    tellSonos('set value of slider 1 of window 1 to get (value of slider 1 of window 1) - 2')
+  else
+    output = hs.audiodevice.defaultOutputDevice()
+    output:setVolume(output:volume() - 10)
+  end
+end, function() k:exit() end)
 
 --== Welcome ==--
 hs.alert.show('Hammerspoon, at your service.')
