@@ -71,7 +71,7 @@ end
 k:bind({}, 'pageup', function()
   print("volume up!")
   if isRunning('Sonos') then
-    tellSonos('set value of slider 1 of window 1 to get (value of slider 1 of window 1) + 2')
+    tellSonos('set value of slider 1 of window 1 to get (value of slider 1 of window 1) + 4')
   else
     output = hs.audiodevice.defaultOutputDevice()
     output:setVolume(output:volume() + 10)
@@ -80,7 +80,7 @@ end, function() k:exit() end)
 
 k:bind({}, 'pagedown', function()
   if isRunning('Sonos') then
-    tellSonos('set value of slider 1 of window 1 to get (value of slider 1 of window 1) - 2')
+    tellSonos('set value of slider 1 of window 1 to get (value of slider 1 of window 1) - 4')
   else
     output = hs.audiodevice.defaultOutputDevice()
     output:setVolume(output:volume() - 10)
