@@ -1,0 +1,38 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+# Trackpad & Mouse
+# TODO: enable tap to click. Can't find correct settings.
+# Faster trackpad speed
+defaults write NSGlobalDomain com.apple.trackpad.scaling -float 2.5
+defaults write NSGlobalDomain com.apple.mouse.scaling -float 2.5
+
+# Set fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+# Set clock to 24-hour display
+defaults write com.apple.menuextra.clock Show24Hour -int 1
+
+# Dock settings
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock orientation left
+defaults write com.apple.dock show-recents -bool false
+defaults write com.apple.dock launchanim -bool false
+defaults write com.apple.dock tilesize -int 44
+# Remove the auto-hiding Dock delay
+defaults write com.apple.dock autohide-delay -float 0
+# Remove the animation when hiding/showing the Dock
+defaults write com.apple.dock autohide-time-modifier -float 0.4
+# Make Dock icons of hidden applications translucent
+defaults write com.apple.dock showhidden -bool true
+# Remove initial set of default apps from dock
+defaults write com.apple.dock persistent-apps -array
+
+# Set default Finder view to column
+defaults write com.apple.finder FXPreferredViewStyle clmv
+
+launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
+killall Dock
+
+{{ end -}}
