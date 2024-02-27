@@ -3,7 +3,6 @@
 if [[ -z "$TMUX" && -z "$EMACS" && -z "$VIM" && -z "$INSIDE_EMACS" && "$TERM_PROGRAM" != "vscode" && "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]]; then
   tmux start-server
 
-  # Create a 'prezto' session if no session has been defined in tmux.conf.
   if ! tmux has-session 2> /dev/null; then
     tmux \
       new-session -d -s base \; \
