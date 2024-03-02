@@ -32,6 +32,7 @@ export EDITOR=nvim
 
 # Aliases
 alias v='nvim'
+alias vim='nvim'
 alias rm='trash'
 alias rmdir='dirtrash'
 # Git aliases
