@@ -15,5 +15,11 @@ return {
       "GitLink"
     }, 
     opts = {}
+  },
+  {
+    "rhysd/git-messenger.vim",
+    cmd = {
+      "GitMessenger"
+    }
   }
 }
