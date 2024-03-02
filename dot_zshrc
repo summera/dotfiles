@@ -28,6 +28,9 @@ bindkey "^L" clear-terminal
 # Auto launch tmux
 source ~/.tmux.zsh
 
+# Asdf configuration
+source $(brew --prefix asdf)/libexec/asdf.sh
+
 export EDITOR=nvim
 
 # Aliases
