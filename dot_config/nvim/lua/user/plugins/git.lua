@@ -9,5 +9,12 @@ return {
       "DiffviewFocusFiles",
       "DiffviewRefresh"
     }
+  },
+  {
+    "linrongbin16/gitlinker.nvim",
+    cmd = {
+      "GitLink"
+    }, 
+    opts = {}
   }
 }
