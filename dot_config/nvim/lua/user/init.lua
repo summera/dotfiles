@@ -28,5 +28,10 @@ return {
       end,
       desc = "Disable focus autoresize for FileType",
     })
+
+    local keymap = vim.api.nvim_set_keymap
+    -- Changes the paste command in visual mode so 
+    -- that it doesn't overwrite whatever is in your paste buffer.
+    keymap("v", "p", '"_dP', { noremap = true, silent = true })     
   end, 
 }
