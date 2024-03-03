@@ -18,6 +18,7 @@ plug "zsh-users/zsh-syntax-highlighting"
 # Exports
 export EDITOR=nvim
 export PATH=/opt/homebrew/bin:$PATH
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 # Enable vi mode
 source ~/.vimode.zsh
