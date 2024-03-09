@@ -2,6 +2,7 @@ return {
   "cappyzawa/trim.nvim",
   event = "User AstroFile",
   opts = {
-    highlight = true
+    highlight = true,
+    highlight_bg = "gray"
   }
 }
