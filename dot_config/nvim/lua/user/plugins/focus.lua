@@ -1,6 +1,6 @@
 return {
-  "nvim-focus/focus.nvim", 
-  event = "VeryLazy",
+  "nvim-focus/focus.nvim",
+  event = "User AstroFile",
   version = "*",
   opts = {}
 }

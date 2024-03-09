@@ -1,4 +1,4 @@
 return {
   "tpope/vim-eunuch",
-  event = "VeryLazy"
+  event = "User AstroFile",
 }
