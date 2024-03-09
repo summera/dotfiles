@@ -5,5 +5,5 @@ return {
   },
   opts = {
     endwise = { enable = true }
-  } 
-} 
+  }
+}
