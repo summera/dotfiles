@@ -4,8 +4,8 @@ return {
   version = "*",
   opts = {
     autoresize = {
-      minwidth = 50,
-      minheight = 50
+      minwidth = 10,
+      minheight = 10
     }
   }
 }
