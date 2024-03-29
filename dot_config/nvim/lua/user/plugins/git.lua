@@ -16,10 +16,10 @@ return {
       },
       hooks = {
         view_enter = function(_)
-          vim.api.nvim_set_var("golden_size_off", 1)
+          vim.cmd("GoldenRatioDisable")
         end,
         view_leave = function(_)
-          vim.api.nvim_set_var("golden_size_off", 0)
+          vim.cmd("GoldenRatioEnable")
         end
       }
     }

@@ -1,5 +1,10 @@
 return {
-  "dm1try/golden_size",
-  branch = "layout_resizing",
-  event = "User AstroFile"
+  "summera/golden-ratio",
+  event = "WinEnter",
+  cmd = {
+    "GoldenRatioResize",
+    "GoldenRatioToggle",
+    "GoldenRatioEnable",
+    "GoldenRatioDisable"
+  }
 }
