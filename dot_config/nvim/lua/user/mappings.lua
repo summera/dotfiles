@@ -3,7 +3,7 @@ return {
     [";"] = { ":", desc = "Ex mode" },
     ["<leader>fw"] = {
       function()
-        require("telescope.builtin").live_grep {
+        require("telescope.builtin").grep_string {
           additional_args = function(args) 
             return vim.list_extend(args, { "--fixed-strings" }) 
           end,
@@ -13,7 +13,7 @@ return {
     },
     ["<leader>fW"] = {
       function()
-        require("telescope.builtin").live_grep {
+        require("telescope.builtin").grep_string {
           additional_args = function(args) 
             return vim.list_extend(args, { "--hidden", "--no-ignore", "--fixed-strings" }) 
           end,
