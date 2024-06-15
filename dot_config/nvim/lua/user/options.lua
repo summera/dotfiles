@@ -1,6 +1,7 @@
 return {
   opt = {
     relativenumber = false,
-    wrap = true
+    wrap = true,
+    cmdheight = 1,
   }
 }
