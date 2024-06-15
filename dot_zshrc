@@ -36,6 +36,9 @@ source ~/.tmux.zsh
 # Asdf configuration
 source $(brew --prefix asdf)/libexec/asdf.sh
 
+# Options
+setopt inc_append_history
+
 # Aliases
 alias v='nvim'
 alias vim='nvim'
