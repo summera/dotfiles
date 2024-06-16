@@ -24,5 +24,11 @@ return {
   },
   v = {
     [";"] = { ":", desc = "Ex mode" }
+  },
+  i = {
+    ["<C-l>"] = { "<Right>", desc = "Arrow right" },
+    ["<C-h>"] = { "<Left>", desc = "Arrow left" },
+    ["<C-k>"] = { "<Up>", desc = "Arrow up" },
+    ["<C-j>"] = { "<Down>", desc = "Arrow down" }
   }
 }
