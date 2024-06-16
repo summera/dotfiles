@@ -3,19 +3,15 @@ return {
     [";"] = { ":", desc = "Ex mode" },
     ["<leader>fw"] = {
       function()
-        require("telescope.builtin").grep_string {
-          additional_args = function(args) 
-            return vim.list_extend(args, { "--fixed-strings" }) 
-          end,
-        }
+        require("user.telescope_search").find_string()
       end,
       desc="Find words"
     },
     ["<leader>fW"] = {
       function()
-        require("telescope.builtin").grep_string {
+        require("user.telescope_search").find_string {
           additional_args = function(args) 
-            return vim.list_extend(args, { "--hidden", "--no-ignore", "--fixed-strings" }) 
+            return vim.list_extend(args, { "--hidden", "--no-ignore" }) 
           end,
         }
       end,
