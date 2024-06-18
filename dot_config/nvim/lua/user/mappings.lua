@@ -3,17 +3,15 @@ return {
     [";"] = { ":", desc = "Ex mode" },
     ["<leader>fw"] = {
       function()
-        require("user.telescope_search").find_string()
+        require("fzf-lua").grep_project()
       end,
       desc="Find words"
     },
     ["<leader>fW"] = {
       function()
-        require("user.telescope_search").find_string {
-          additional_args = function(args) 
-            return vim.list_extend(args, { "--hidden", "--no-ignore" }) 
-          end,
-        }
+        require("fzf-lua").grep_project({
+          rg_opts = "--hidden --column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e"
+        })
       end,
       desc = "Find words in all files",
     }
