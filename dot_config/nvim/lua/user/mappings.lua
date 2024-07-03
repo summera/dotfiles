@@ -41,6 +41,12 @@ return {
       end, 
       desc = "Find keymaps" 
     },
+    ["<leader>fc"] = {
+      function()
+        require("fzf-lua").commands()
+      end,
+      desc = "Find commands"
+    },
     ["<leader>fh"] = { 
       function() 
         require("fzf-lua").helptags() 
