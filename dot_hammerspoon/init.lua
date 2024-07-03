@@ -22,9 +22,10 @@ k:bind({}, "y", function() launchOrFocus("Spotify") end, function() k:exit() end
 k:bind({}, "m", function() launchOrFocus("Messages") end, function() k:exit() end)
 k:bind({}, "c", function() launchOrFocus("Google Chrome") end, function() k:exit() end)
 k:bind({}, "m", function() launchOrFocus("Messages") end, function() k:exit() end)
+k:bind({}, "d", function() launchOrFocus("Todoist") end, function() k:exit() end)
 
 k:bind({}, "r", function() hs.reload() end, function() k:exit() end)
-k:bind({}, "d", function() hs.window.focusedWindow():close() end, function() k:exit() end)
+k:bind({}, "x", function() hs.window.focusedWindow():close() end, function() k:exit() end)
 
 --== Grid snapping ==--
 local function snapFocusedWindow(layout)
@@ -40,45 +41,6 @@ k:bind({}, ";", function() snapFocusedWindow(hs.layout.right25) end, function() 
 
 k:bind({}, "i", function() snapFocusedWindow(geometry.rect(0.125, 0, 0.75, 1)) end, function() k:exit() end)
 k:bind({}, "o", function() snapFocusedWindow(hs.layout.maximized) end, function() k:exit() end)
-
-local function tellSonos(cmd)
-  local _cmd = 'tell application "System Events" to tell process "Sonos" to ' .. cmd
-  local ok, result = as.applescript(_cmd)
-  if ok then
-    return result
-  else
-    return nil
-  end
-end
-local function isRunning(appName)
-  local _cmd = 'application "' .. appName .. '" is running'
-  local ok, result = as.applescript(_cmd)
-
-  if ok then
-    return result
-  else
-    return false
-  end
-end
-
-k:bind({}, "pageup", function()
-  print("volume up!")
-  if isRunning("Sonos") then
-    tellSonos("set value of slider 1 of window 1 to get (value of slider 1 of window 1) + 4")
-  else
-    output = hs.audiodevice.defaultOutputDevice()
-    output:setVolume(output:volume() + 10)
-  end
-end, function() k:exit() end)
-
-k:bind({}, "pagedown", function()
-  if isRunning("Sonos") then
-    tellSonos("set value of slider 1 of window 1 to get (value of slider 1 of window 1) - 4")
-  else
-    output = hs.audiodevice.defaultOutputDevice()
-    output:setVolume(output:volume() - 10)
-  end
-end, function() k:exit() end)
 
 --== Welcome ==--
 hs.alert.show("Hammerspoon, at your service.")
