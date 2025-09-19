@@ -10,6 +10,10 @@ return {
 			})
 
 			opts.endwise = { enable = true }
+
+			opts.indent.disable = {
+				"ruby",
+			}
 		end,
 	},
 }
