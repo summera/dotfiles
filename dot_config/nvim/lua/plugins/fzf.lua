@@ -15,7 +15,7 @@ return {
 		config.defaults.keymap.fzf["ctrl-b"] = "preview-page-up"
 		config.defaults.keymap.builtin["<c-f>"] = "preview-page-down"
 		config.defaults.keymap.builtin["<c-b>"] = "preview-page-up"
-		config.defaults.keymap.builtin["<c-p>"] = "focus-preview"
+		config.defaults.keymap.builtin["<c-l>"] = "focus-preview"
 
 		-- Trouble
 		if LazyVim.has("trouble.nvim") then
