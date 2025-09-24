@@ -7,3 +7,5 @@ vim.g.snacks_animate = false
 vim.opt.textwidth = 0
 vim.opt.wrapmargin = 0
 vim.opt.wrap = true
+
+vim.g.lazyvim_picker = "fzf"
