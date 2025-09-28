@@ -229,5 +229,21 @@ return {
 			end,
 			desc = "Goto Symbol (Workspace)",
 		},
+		{
+			"<c-i>",
+			function()
+				local fzf = require("fzf-lua")
+				local fzf_window = fzf.win.__SELF().fzf_winid
+
+				if fzf_window ~= vim.api.nvim_get_current_win() then
+					vim.api.nvim_set_current_win(fzf_window)
+					vim.cmd("startinsert")
+				end
+			end,
+			noremap = true,
+			nowait = true,
+			silent = true,
+			desc = "Focus fzf window in insert mode",
+		},
 	},
 }
